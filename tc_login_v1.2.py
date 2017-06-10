@@ -1,0 +1,42 @@
+def tc_login():
+	browser=webdriver.Chrome()
+	browser.get('https://www.truecaller.com')
+	list1=['9999006455','8800143011','52316','9213423914','*123#']
+	user=browser.find_element_by_css_selector('.searchbar-query')
+	user.send_keys('9899842425')
+	login=browser.find_element_by_css_selector('.searchbar-submit')
+	login.click()
+	time.sleep(5)
+	button=browser.find_element_by_css_selector('.sign-in-dialog-provider')
+	button.click()
+	time.sleep(5)
+	enter_mail=browser.find_element_by_css_selector('.whsOnd')
+	enter_mail.send_keys('mgreat972')
+	next_click=browser.find_element_by_css_selector('.RveJvd')
+	next_click.click()
+	time.sleep(5)
+	enter_pass=browser.find_element_by_css_selector('.whsOnd')
+	enter_pass.send_keys('defaulterishere')
+	next_click=browser.find_element_by_css_selector('.RveJvd')
+	next_click.click()
+	time.sleep(10)
+	regex='<div class="profile-details-text profile-details-text-concat"><div>(.+?)</div> <div>Email</div></div>'
+	pattern=re.compile(regex)
+	#html=urllib.urlopen(browser.current_url)
+	#htmltext=html.read()
+	mail=re.findall(pattern,browser.page_source)
+	print (mail)
+	#entering into the loop
+	for i in range(len(list1)):
+		next_no=browser.find_element_by_css_selector('#app > div.navbar > div:nth-child(2) > div > div.searchbar-inputs > input')
+		next_no.send_keys(list1[i])
+		next_click=browser.find_element_by_css_selector('#app > div.navbar > div:nth-child(2) > div > div.searchbar-inputs > button.searchbar-submit')
+		next_click.click()
+		time.sleep(10)
+		regex='<div class="profile-details-text profile-details-text-concat"><div>(.+?)</div> <div>Email</div></div>'
+		pattern=re.compile(regex)
+		#html=urllib.urlopen(browser.current_url)
+		#htmltext=html.read()
+		mail=re.findall(pattern,browser.page_source)
+		print (mail)
+		#end of loop
