@@ -1,9 +1,9 @@
 def tc_login():
 	browser=webdriver.Chrome()
-	browser.get('https://www.truecaller.com')
-	list1=['9999006455','8800143011','52316','9213423914','*123#']
+	browser.get('website')
+	
 	user=browser.find_element_by_css_selector('.searchbar-query')
-	user.send_keys('9899842425')
+	user.send_keys('no.')
 	login=browser.find_element_by_css_selector('.searchbar-submit')
 	login.click()
 	time.sleep(5)
@@ -11,12 +11,12 @@ def tc_login():
 	button.click()
 	time.sleep(5)
 	enter_mail=browser.find_element_by_css_selector('.whsOnd')
-	enter_mail.send_keys('mgreat972')
+	enter_mail.send_keys('mail')
 	next_click=browser.find_element_by_css_selector('.RveJvd')
 	next_click.click()
 	time.sleep(5)
 	enter_pass=browser.find_element_by_css_selector('.whsOnd')
-	enter_pass.send_keys('defaulterishere')
+	enter_pass.send_keys('pass')
 	next_click=browser.find_element_by_css_selector('.RveJvd')
 	next_click.click()
 	time.sleep(10)
